@@ -89,5 +89,61 @@
         "name": "Leather Recliner",
         "price": 299.99,
         "description": "Experience luxury and relaxation with this comfortable leather recliner for your living room."
+    },
+    {
+        "id": 14,
+        "category": "Bedroom",
+        "name": "Framed Wall Art",
+        "price": 59.99,
+        "description": "Elevate your bedroom decor with this beautifully framed wall art piece."
+    },
+    {
+        "id": 15,
+        "category": "Kitchen",
+        "name": "Non-Stick Cookware Set",
+        "price": 79.99,
+        "description": "Cook with ease using this non-stick cookware set, perfect for your kitchen."
+    },
+    {
+        "id": 16,
+        "category": "Living Room",
+        "name": "Decorative Throw Pillows",
+        "price": 24.99,
+        "description": "Add a pop of color and style to your living room with these decorative throw pillows."
+    },
+    {
+        "id": 17,
+        "category": "Bedroom",
+        "name": "Mirrored Dresser",
+        "price": 199.99,
+        "description": "Organize your bedroom in style with this chic mirrored dresser."
+    },
+    {
+        "id": 18,
+        "category": "Kitchen",
+        "name": "Glass Drinkware Set",
+        "price": 49.99,
+        "description": "Upgrade your kitchen essentials with this elegant glass drinkware set."
+    },
+    {
+        "id": 19,
+        "category": "Living Room",
+        "name": "Rustic Bookshelf",
+        "price": 159.99,
+        "description": "Display your favorite books and decor items with this charming rustic bookshelf."
+    },
+    {
+        "id": 20,
+        "category": "Bedroom",
+        "name": "Linen Duvet Cover",
+        "price": 89.99,
+        "description": "Wrap yourself in luxury with this soft and breathable linen duvet cover for your bedroom."
+    },
+    {
+        "id": 21,
+        "category": "Kitchen",
+        "name": "Wooden Utensil Set",
+        "price": 29.99,
+        "description": "Upgrade your kitchen tools with this durable and eco-friendly wooden utensil set."
     }
 ]

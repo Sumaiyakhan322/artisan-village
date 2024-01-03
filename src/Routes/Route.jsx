@@ -5,14 +5,16 @@ import {
 import Main from "../Layouts/Main";
 import AllProducts from "../Pages/AllProducts";
 
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Main></Main>,
+      element:<Main></Main>,
       children:[{
         path:'/all',
         element:<AllProducts></AllProducts>
       }]
     },
   ]);
-  export default router;
+
+  export default router
