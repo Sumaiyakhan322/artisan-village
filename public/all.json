@@ -1,0 +1,93 @@
+[
+    {
+        "id": 1,
+        "category": "Living Room",
+        "name": "Elegant Sofa Set",
+        "price": 799.99,
+        "description": "A luxurious and comfortable sofa set, perfect for your living room."
+    },
+    {
+        "id": 2,
+        "category": "Bedroom",
+        "name": "Cozy Bedding Set",
+        "price": 129.99,
+        "description": "Transform your bedroom into a cozy haven with this stylish bedding set."
+    },
+    {
+        "id": 3,
+        "category": "Kitchen",
+        "name": "Modern Dining Table",
+        "price": 299.99,
+        "description": "Upgrade your kitchen with this sleek and modern dining table for family gatherings."
+    },
+    {
+        "id": 4,
+        "category": "Living Room",
+        "name": "Accent Armchair",
+        "price": 199.99,
+        "description": "Add a touch of elegance to your living space with this stylish accent armchair."
+    },
+    {
+        "id": 5,
+        "category": "Bedroom",
+        "name": "Vintage Nightstand",
+        "price": 79.99,
+        "description": "Complete your bedroom setup with this charming vintage nightstand."
+    },
+    {
+        "id": 6,
+        "category": "Kitchen",
+        "name": "Stainless Steel Cookware Set",
+        "price": 149.99,
+        "description": "Upgrade your kitchen essentials with this durable stainless steel cookware set."
+    },
+    {
+        "id": 7,
+        "category": "Living Room",
+        "name": "Modern Coffee Table",
+        "price": 119.99,
+        "description": "Enhance your living room decor with this sleek and functional modern coffee table."
+    },
+    {
+        "id": 8,
+        "category": "Bedroom",
+        "name": "Soft Pillow Set",
+        "price": 34.99,
+        "description": "Experience ultimate comfort with this soft and fluffy pillow set for a good night's sleep."
+    },
+    {
+        "id": 9,
+        "category": "Kitchen",
+        "name": "Designer Dinnerware Set",
+        "price": 89.99,
+        "description": "Serve your meals in style with this elegant designer dinnerware set for your kitchen."
+    },
+    {
+        "id": 10,
+        "category": "Living Room",
+        "name": "Floor Standing Lamp",
+        "price": 69.99,
+        "description": "Illuminate your living space with this stylish and functional floor standing lamp."
+    },
+    {
+        "id": 11,
+        "category": "Bedroom",
+        "name": "Cotton Bed Sheets",
+        "price": 49.99,
+        "description": "Indulge in the comfort of these high-quality cotton bed sheets for a restful sleep."
+    },
+    {
+        "id": 12,
+        "category": "Kitchen",
+        "name": "Smart Coffee Maker",
+        "price": 129.99,
+        "description": "Brew your favorite coffee with convenience using this smart and efficient coffee maker."
+    },
+    {
+        "id": 13,
+        "category": "Living Room",
+        "name": "Leather Recliner",
+        "price": 299.99,
+        "description": "Experience luxury and relaxation with this comfortable leather recliner for your living room."
+    }
+]
