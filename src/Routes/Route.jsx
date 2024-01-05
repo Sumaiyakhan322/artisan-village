@@ -6,14 +6,17 @@ import Main from "../Layouts/Main";
 import AllProducts from "../Pages/AllProducts";
 
 
+
   const router = createBrowserRouter([
     {
       path: "/",
       element:<Main></Main>,
       children:[{
         path:'/all',
-        element:<AllProducts></AllProducts>
-      }]
+        element:<AllProducts></AllProducts>,
+      }
+    ,
+]
     },
   ]);
 

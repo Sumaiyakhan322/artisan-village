@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const AllProducts = () =>{
     const [allData, setAllData] = useState([]);
     const [filterData,setFilterData]=useState([]);
-    const [search,setSearch]=useState('')
+    
     
 
     useEffect(() => {
@@ -24,10 +24,11 @@ const AllProducts = () =>{
         console.log(name);
     }
     const handleSearch=e=>{
-        console.log(e.target.value);
-        setSearch(e.target.value);
+      const searchTerm = e.target.value.toLowerCase();
+      
+
       const our=  allData.filter(items=>{
-        if( items.name.includes(e.target.value)){
+        if(items.name.toLowerCase().includes(searchTerm)){
           return items;
         }
         
