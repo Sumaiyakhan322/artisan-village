@@ -4,7 +4,8 @@ const AllProducts = () => {
   const [allData, setAllData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [price,setPrice]=useState('null');
+  const [category,setCategory]=useState('')
+  const [price, setPrice] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,18 +39,28 @@ const AllProducts = () => {
         item.name.toLowerCase().includes(searchTerm)
     );
     setFilterData(categoryWiseItems);
+    setCategory(selectedCategory);
   };
- const handlePrice=e=>{
- 
- console.log(price);
 
- }
- const handleChange=e=>{
-  setPrice(e.target.value)
- }
+  const onOptionChange = (e) => {
+    const selectedPrice = e.target.value;
+    setPrice(selectedPrice);
+    const [initialPrice, lastPrice] = selectedPrice.split("-").map(Number);
+    const filteredProducts = allData.filter((item) => {
+      const itemPrice = Number(item.price);
+      return (
+        itemPrice >= initialPrice &&
+        itemPrice <= lastPrice &&
+        item.name.toLowerCase().includes(searchTerm) && 
+        item.category===category
+      );
+    });
+
+    setFilterData(filteredProducts);
+  };
 
   return (
-    <div className="flex gap-10 ">
+    <div className="flex gap-10 my-10">
       <div className="space-y-9">
         <input
           type="text"
@@ -57,65 +68,78 @@ const AllProducts = () => {
           onChange={handleSearch}
           placeholder="Search by product name"
         />
-        <div className="">
-          <button className="block" onClick={() => handleCategory("All")}>
+        <div className="space-y-6">
+          <button className="block btn btn-outline btn-info w-20" onClick={() => handleCategory("All")} >
             All
           </button>
-          <button className="block" onClick={() => handleCategory("Kitchen")}>
+          <button className="block btn btn-outline btn-info w-20" onClick={() => handleCategory("Kitchen")}>
             Kitchen
           </button>
-          <button className="block" onClick={() => handleCategory("Bedroom")}>
+          <button className="block btn btn-outline btn-info w-20" onClick={() => handleCategory("Bedroom")}>
             Bedroom
           </button>
           <button
-            className="block"
+            className="block btn btn-outline btn-info w-20"
             onClick={() => handleCategory("Living Room")}
           >
             Living Room
           </button>
         </div>
         <div>
-              
+          <div>
+            <h3>Select price Size</h3>
+            <div>
+              <input
+                type="radio"
+                name="price"
+                value="300-400"
+                id="regular"
+                // checked={setPrice === "300-400"}
+                onChange={onOptionChange}
+              />
+              <label htmlFor="regular">300-400</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="price"
+                value="200-300"
+                id="medium"
+                // checked={setPrice === "200-300"}
+                onChange={onOptionChange}
+              />
+              <label htmlFor="medium">200-300</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="price"
+                value="100-200"
+                id="large"
+                // checked={setPrice === "100-200"}
+                onChange={onOptionChange}
+              />
+              <label htmlFor="large">100-200</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="price"
+                value="10-100"
+                id="extra-large"
+                // checked={setPrice === "10-100"}
+                onChange={onOptionChange}
+              />
+              <label htmlFor="extra-large">10-100</label>
+            </div>
 
-              <div>
-                <form action="" onClick={handlePrice}>
-           
- 
-          <div className="form-control">
-            <label className="label cursor-pointer">
-              <span className="label-text">Red pill</span>
-              <input
-                type="radio"
-                name="radio1"
-                className="radio checked:bg-red-500"
-                value={'Red pill'}
-                checked={setPrice==='Red pill'}
-                onChange={handleChange}
-               
-              />
-            </label>
+            <p>
+              Select topping <strong>{price}</strong>
+            </p>
           </div>
-          <div className="form-control">
-            <label className="label cursor-pointer">
-              <span className="label-text">Blue pill</span>
-              <input
-                type="radio"
-                name="radio1"
-                className="radio checked:bg-blue-500"
-                value={'Blue pill'}
-                checked={setPrice==='Blue pill'}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          </form>
         </div>
-        
+      </div>
 
-      </div>
-    
-      </div>
-      
       <div className="grid grid-cols-3 gap-5">
         {filterData.map((item) => (
           <div key={item.id}>
