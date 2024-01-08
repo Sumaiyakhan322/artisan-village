@@ -1,146 +1,143 @@
 [
     {
-        "id": 1,
+       
         "category": "Living Room",
         "name": "Elegant Sofa Set",
         "price": 349.99,
         "description": "A luxurious and comfortable sofa set, perfect for your living room."
     },
     {
-        "id": 2,
+       
         "category": "Bedroom",
         "name": "Cozy Bedding Set",
         "price": 129.99,
         "description": "Transform your bedroom into a cozy haven with this stylish bedding set."
     },
     {
-        "id": 3,
+       
         "category": "Kitchen",
         "name": "Modern Dining Table",
         "price": 299.99,
         "description": "Upgrade your kitchen with this sleek and modern dining table for family gatherings."
     },
     {
-        "id": 4,
+        
         "category": "Living Room",
         "name": "Accent Armchair",
         "price": 199.99,
         "description": "Add a touch of elegance to your living space with this stylish accent armchair."
     },
     {
-        "id": 5,
+      
         "category": "Bedroom",
         "name": "Vintage Nightstand",
         "price": 79.99,
         "description": "Complete your bedroom setup with this charming vintage nightstand."
     },
     {
-        "id": 6,
+       
         "category": "Kitchen",
         "name": "Stainless Steel Cookware Set",
         "price": 149.99,
         "description": "Upgrade your kitchen essentials with this durable stainless steel cookware set."
     },
     {
-        "id": 7,
+        
         "category": "Living Room",
         "name": "Modern Coffee Table",
         "price": 119.99,
         "description": "Enhance your living room decor with this sleek and functional modern coffee table."
     },
     {
-        "id": 8,
+       
         "category": "Bedroom",
         "name": "Soft Pillow Set",
         "price": 34.99,
         "description": "Experience ultimate comfort with this soft and fluffy pillow set for a good night's sleep."
     },
     {
-        "id": 9,
         "category": "Kitchen",
         "name": "Designer Dinnerware Set",
         "price": 89.99,
         "description": "Serve your meals in style with this elegant designer dinnerware set for your kitchen."
     },
     {
-        "id": 10,
         "category": "Living Room",
         "name": "Floor Standing Lamp",
         "price": 69.99,
         "description": "Illuminate your living space with this stylish and functional floor standing lamp."
     },
     {
-        "id": 11,
+      
         "category": "Bedroom",
         "name": "Cotton Bed Sheets",
         "price": 49.99,
         "description": "Indulge in the comfort of these high-quality cotton bed sheets for a restful sleep."
     },
     {
-        "id": 12,
+        
         "category": "Kitchen",
         "name": "Smart Coffee Maker",
         "price": 129.99,
         "description": "Brew your favorite coffee with convenience using this smart and efficient coffee maker."
     },
     {
-        "id": 13,
+       
         "category": "Living Room",
         "name": "Leather Recliner",
         "price": 299.99,
         "description": "Experience luxury and relaxation with this comfortable leather recliner for your living room."
     },
     {
-        "id": 14,
+     
         "category": "Bedroom",
         "name": "Framed Wall Art",
         "price": 59.99,
         "description": "Elevate your bedroom decor with this beautifully framed wall art piece."
     },
     {
-        "id": 15,
+       
         "category": "Kitchen",
         "name": "Non-Stick Cookware Set",
         "price": 79.99,
         "description": "Cook with ease using this non-stick cookware set, perfect for your kitchen."
     },
     {
-        "id": 16,
+        
         "category": "Living Room",
         "name": "Decorative Throw Pillows",
         "price": 24.99,
         "description": "Add a pop of color and style to your living room with these decorative throw pillows."
     },
     {
-        "id": 17,
+        
         "category": "Bedroom",
         "name": "Mirrored Dresser",
         "price": 199.99,
         "description": "Organize your bedroom in style with this chic mirrored dresser."
     },
     {
-        "id": 18,
+       
         "category": "Kitchen",
         "name": "Glass Drinkware Set",
         "price": 49.99,
         "description": "Upgrade your kitchen essentials with this elegant glass drinkware set."
     },
     {
-        "id": 19,
+        
         "category": "Living Room",
         "name": "Rustic Bookshelf",
         "price": 159.99,
         "description": "Display your favorite books and decor items with this charming rustic bookshelf."
     },
     {
-        "id": 20,
         "category": "Bedroom",
         "name": "Linen Duvet Cover",
         "price": 89.99,
         "description": "Wrap yourself in luxury with this soft and breathable linen duvet cover for your bedroom."
     },
     {
-        "id": 21,
+      
         "category": "Kitchen",
         "name": "Wooden Utensil Set",
         "price": 29.99,

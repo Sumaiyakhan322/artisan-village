@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import usePublic from "../Hooks/usePublic";
+
 
 const AllProducts = () => {
   const [allData, setAllData] = useState([]);
@@ -6,21 +8,24 @@ const AllProducts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category,setCategory]=useState('')
   const [price, setPrice] = useState("");
+  const axiosPublic=usePublic()
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("all.json");
-        const data = await response.json();
-        setAllData(data);
-        setFilterData(data);
+        // const response = await fetch("all.json");
+        const data=await axiosPublic.get('/products')
+        // const data = await response.json();
+        setAllData(data.data);
+        setFilterData(data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [axiosPublic]);
 
   const handleSearch = (e) => {
     const searchItem = e.target.value.toLowerCase();
@@ -133,9 +138,7 @@ const AllProducts = () => {
               <label htmlFor="extra-large">10-100</label>
             </div>
 
-            <p>
-              Select topping <strong>{price}</strong>
-            </p>
+           
           </div>
         </div>
       </div>
