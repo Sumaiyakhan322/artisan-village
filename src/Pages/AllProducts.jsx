@@ -4,13 +4,15 @@ import ProductsCard from "../Components/ProductsCard";
 import SearchOptions from "../Components/SearchOptions";
 
 const AllProducts = () => {
+  const axiosPublic = usePublic();
   const [allData, setAllData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [countedData, setCountedData] = useState("");
-  const axiosPublic = usePublic();
+  
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +25,7 @@ const AllProducts = () => {
     fetchData();
   }, [axiosPublic]);
 
-  console.log(countedData.count);
+  
   const handleSearch = (e) => {
     const searchItem = e.target.value.toLowerCase();
     setSearchTerm(searchItem);
@@ -59,20 +61,34 @@ const AllProducts = () => {
     setFilterData(filteredProducts);
   };
 
+ const totalCountedData=parseInt(countedData.count);
+ const itemsPerPage=3;
+ const numberOfPage=Math.ceil(totalCountedData/itemsPerPage)
+ console.log(numberOfPage);
+const pages=[]
+for(let i=1;i<numberOfPage;i++){
+ pages.push(i)
+}
+
   return (
     <div className="flex gap-10 my-10">
       <div className="space-y-9">
-        <div >
-            <SearchOptions handleCategory={handleCategory} handleSearch={handleSearch} onOptionChange={onOptionChange}></SearchOptions>
+        <div>
+          <SearchOptions
+            handleCategory={handleCategory}
+            handleSearch={handleSearch}
+            onOptionChange={onOptionChange}
+          ></SearchOptions>
         </div>
-     
-       
       </div>
-
       <div className="grid grid-cols-3 gap-5">
         {filterData.map((item) => (
           <ProductsCard item={item} key={item._id}></ProductsCard>
         ))}
+        {/* pagination */}
+        <div>
+           {pages.map((page,index)=><button key={index} className="btn">{page}</button>)}
+        </div>
       </div>
     </div>
   );
