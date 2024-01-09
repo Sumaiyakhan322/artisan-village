@@ -8,6 +8,7 @@ const AllProducts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category,setCategory]=useState('')
   const [price, setPrice] = useState("");
+  const [countedData,setCountedData]=useState('')
   const axiosPublic=usePublic()
   
 
@@ -15,10 +16,11 @@ const AllProducts = () => {
     const fetchData = async () => {
       try {
         // const response = await fetch("all.json");
-        const data=await axiosPublic.get('/products')
-        // const data = await response.json();
+        const data=await axiosPublic.get('/products');
+        const countedData=await axiosPublic.get('/productsCount');
         setAllData(data.data);
         setFilterData(data.data);
+        setCountedData(countedData.data)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -26,7 +28,8 @@ const AllProducts = () => {
 
     fetchData();
   }, [axiosPublic]);
-
+ 
+console.log(countedData);
   const handleSearch = (e) => {
     const searchItem = e.target.value.toLowerCase();
     setSearchTerm(searchItem);
@@ -145,7 +148,7 @@ const AllProducts = () => {
 
       <div className="grid grid-cols-3 gap-5">
         {filterData.map((item) => (
-          <div key={item.id}>
+          <div key={item._id}>
             <div className="card bg-yellow-200 shadow-xl p-10">
               <div className="card-body">
                 <h2 className="card-title text-3xl">{item.name}</h2>

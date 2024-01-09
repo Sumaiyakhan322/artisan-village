@@ -14,6 +14,7 @@ import AllProducts from "../Pages/AllProducts";
       children:[{
         path:'/all',
         element:<AllProducts></AllProducts>,
+        
       }
     ,
 ]
