@@ -1,45 +1,36 @@
 import { useEffect, useState } from "react";
 import usePublic from "../Hooks/usePublic";
-
+import ProductsCard from "../Components/ProductsCard";
 
 const AllProducts = () => {
   const [allData, setAllData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [category,setCategory]=useState('')
+  const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
-  const [countedData,setCountedData]=useState('')
-  const axiosPublic=usePublic()
-  
+  const [countedData, setCountedData] = useState("");
+  const axiosPublic = usePublic();
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        // const response = await fetch("all.json");
-        const data=await axiosPublic.get('/products');
-        const countedData=await axiosPublic.get('/productsCount');
-        setAllData(data.data);
-        setFilterData(data.data);
-        setCountedData(countedData.data)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+      const data = await axiosPublic.get("/products");
+      const countedData = await axiosPublic.get("/productsCount");
+      setAllData(data.data);
+      setFilterData(data.data);
+      setCountedData(countedData.data);
     };
-
     fetchData();
   }, [axiosPublic]);
- 
-console.log(countedData);
+
+  console.log(countedData.count);
   const handleSearch = (e) => {
     const searchItem = e.target.value.toLowerCase();
     setSearchTerm(searchItem);
-
     const searchedAll = allData.filter((item) =>
       item.name.toLowerCase().includes(searchItem)
     );
     setFilterData(searchedAll);
   };
-
   const handleCategory = (selectedCategory) => {
     const categoryWiseItems = allData.filter(
       (item) =>
@@ -59,8 +50,8 @@ console.log(countedData);
       return (
         itemPrice >= initialPrice &&
         itemPrice <= lastPrice &&
-        item.name.toLowerCase().includes(searchTerm) && 
-        item.category===category
+        item.name.toLowerCase().includes(searchTerm) &&
+        item.category === category
       );
     });
 
@@ -77,13 +68,22 @@ console.log(countedData);
           placeholder="Search by product name"
         />
         <div className="space-y-6">
-          <button className="block btn btn-outline btn-info w-20" onClick={() => handleCategory("All")} >
+          <button
+            className="block btn btn-outline btn-info w-20"
+            onClick={() => handleCategory("All")}
+          >
             All
           </button>
-          <button className="block btn btn-outline btn-info w-20" onClick={() => handleCategory("Kitchen")}>
+          <button
+            className="block btn btn-outline btn-info w-20"
+            onClick={() => handleCategory("Kitchen")}
+          >
             Kitchen
           </button>
-          <button className="block btn btn-outline btn-info w-20" onClick={() => handleCategory("Bedroom")}>
+          <button
+            className="block btn btn-outline btn-info w-20"
+            onClick={() => handleCategory("Bedroom")}
+          >
             Bedroom
           </button>
           <button
@@ -140,27 +140,13 @@ console.log(countedData);
               />
               <label htmlFor="extra-large">10-100</label>
             </div>
-
-           
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-3 gap-5">
         {filterData.map((item) => (
-          <div key={item._id}>
-            <div className="card bg-yellow-200 shadow-xl p-10">
-              <div className="card-body">
-                <h2 className="card-title text-3xl">{item.name}</h2>
-                <p>{item.price}</p>
-                <p>{item.description}</p>
-                <p className="text-3xl">{item.category}</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProductsCard item={item} key={item._id}></ProductsCard>
         ))}
       </div>
     </div>
