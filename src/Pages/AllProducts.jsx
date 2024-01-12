@@ -10,8 +10,11 @@ const AllProducts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
+
+  //pagination
   const [countedData, setCountedData] = useState("");
-  const [itemsPerPage,setItemsPerPage]=useState(5)
+  const [itemsPerPage,setItemsPerPage]=useState(5);
+  const [currentPageNumber,setCurrentPageNumber]=useState(1)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,8 +72,19 @@ const AllProducts = () => {
     pages.push(i);
   }
 const handlePerPage=(e)=>{
- console.log(e.target.value);
- setItemsPerPage(e.target.value)
+ const value=parseInt(e.target.value)
+ setItemsPerPage(value)
+ setCurrentPageNumber(1)
+}
+const handlePrevious=()=>{
+  if(currentPageNumber>1){
+    setCurrentPageNumber(currentPageNumber-1)
+  }
+}
+const handleNext=()=>{
+  if(currentPageNumber<pages.length){
+    setCurrentPageNumber(currentPageNumber+1)
+  }
 }
   return (
     <div className="flex gap-10 my-10">
@@ -92,11 +106,15 @@ const handlePerPage=(e)=>{
       
         </div>
         <div className="">
+          <p>{currentPageNumber}</p>
+          <button onClick={handlePrevious}>Previous</button>
           {pages.map((page, index) => (
-            <button key={index} className="btn">
+          
+            <button onClick={()=>setCurrentPageNumber(page)} key={index} className={currentPageNumber===page ? 'btn bg-red-500' :'btn'}>
               {page}
             </button>
           ))}
+          <button onClick={handleNext}>next</button>
           <select name="" id="" value={itemsPerPage} onChange={handlePerPage}>
             <option value="3">3</option>
             <option value="5">5</option>
