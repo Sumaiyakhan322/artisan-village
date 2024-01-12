@@ -11,8 +11,7 @@ const AllProducts = () => {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [countedData, setCountedData] = useState("");
-  
-  
+  const [itemsPerPage,setItemsPerPage]=useState(5)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +24,6 @@ const AllProducts = () => {
     fetchData();
   }, [axiosPublic]);
 
-  
   const handleSearch = (e) => {
     const searchItem = e.target.value.toLowerCase();
     setSearchTerm(searchItem);
@@ -61,15 +59,19 @@ const AllProducts = () => {
     setFilterData(filteredProducts);
   };
 
- const totalCountedData=parseInt(countedData.count);
- const itemsPerPage=3;
- const numberOfPage=Math.ceil(totalCountedData/itemsPerPage)
- console.log(numberOfPage);
-const pages=[]
-for(let i=1;i<numberOfPage;i++){
- pages.push(i)
-}
+  //pagination
 
+  const totalCountedData = parseInt(countedData.count);
+ 
+  const numberOfPage = Math.ceil(totalCountedData / itemsPerPage);
+  const pages = [];
+  for (let i = 1; i < numberOfPage+1; i++) {
+    pages.push(i);
+  }
+const handlePerPage=(e)=>{
+ console.log(e.target.value);
+ setItemsPerPage(e.target.value)
+}
   return (
     <div className="flex gap-10 my-10">
       <div className="space-y-9">
@@ -81,15 +83,32 @@ for(let i=1;i<numberOfPage;i++){
           ></SearchOptions>
         </div>
       </div>
+      <div>
       <div className="grid grid-cols-3 gap-5">
         {filterData.map((item) => (
           <ProductsCard item={item} key={item._id}></ProductsCard>
         ))}
         {/* pagination */}
-        <div>
-           {pages.map((page,index)=><button key={index} className="btn">{page}</button>)}
+      
+        </div>
+        <div className="">
+          {pages.map((page, index) => (
+            <button key={index} className="btn">
+              {page}
+            </button>
+          ))}
+          <select name="" id="" value={itemsPerPage} onChange={handlePerPage}>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+          </select>
         </div>
       </div>
+
+     
+    
     </div>
   );
 };
