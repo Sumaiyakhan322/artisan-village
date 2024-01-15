@@ -15,17 +15,19 @@ const AllProducts = () => {
   const [countedData, setCountedData] = useState("");
   const [itemsPerPage,setItemsPerPage]=useState(5);
   const [currentPageNumber,setCurrentPageNumber]=useState(1)
+  const totalCountedData = parseInt(countedData.count);
+  console.log('hello');
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axiosPublic.get("/products");
+      const data = await axiosPublic.get(`/products/?page=${currentPageNumber}&limit=${itemsPerPage}`);
       const countedData = await axiosPublic.get("/productsCount");
       setAllData(data.data);
       setFilterData(data.data);
       setCountedData(countedData.data);
     };
     fetchData();
-  }, [axiosPublic]);
+  }, [axiosPublic,itemsPerPage,currentPageNumber]);
 
   const handleSearch = (e) => {
     const searchItem = e.target.value.toLowerCase();
@@ -64,7 +66,7 @@ const AllProducts = () => {
 
   //pagination
 
-  const totalCountedData = parseInt(countedData.count);
+  
  
   const numberOfPage = Math.ceil(totalCountedData / itemsPerPage);
   const pages = [];
