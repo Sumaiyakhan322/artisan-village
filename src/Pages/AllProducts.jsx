@@ -16,7 +16,7 @@ const AllProducts = () => {
   const [itemsPerPage,setItemsPerPage]=useState(5);
   const [currentPageNumber,setCurrentPageNumber]=useState(1)
   const totalCountedData = parseInt(countedData.count);
-  console.log('hello');
+  console.log('554');
 
   useEffect(() => {
     const fetchData = async () => {
